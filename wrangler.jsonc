@@ -1,0 +1,12 @@
+// Cloudflare Workers config — serves the static site in /out and runs the contact form API.
+{
+  "name": "gusify",
+  "main": "worker/index.ts",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
+  },
+  "observability": { "enabled": true }
+}
