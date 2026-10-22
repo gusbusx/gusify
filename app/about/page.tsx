@@ -21,7 +21,9 @@ const TEAM = [
     placeholder: '[Photo of Zoey]',
     bio: [
       'Every studio needs someone keeping morale up. At Gusify, that’s Zoey — head of emotional support, official greeter and firm believer that no deadline is more important than a walk.',
-      '[Zoey’s story — how she joined the family, her breed, and her favorite part of studio life.]',
+      'Zoey is a [age]-year-old [breed] who joined the family in [month/year] when [how she came home — rescue, breeder, surprise gift…].',
+      'On a typical workday she [what she does — naps under the desk, guards the door, supervises every call]. Her favorite things: [toy], [treat] and [activity].',
+      '[One funny or sweet Zoey moment — a sentence or two.]',
     ],
   },
 ];
