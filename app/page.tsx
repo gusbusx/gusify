@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import { ARCH, BROWSER_DEMO } from '@/lib/raw';
 import ProjectTiles from '@/components/ProjectTiles';
 import LiveChart from '@/components/LiveChart';

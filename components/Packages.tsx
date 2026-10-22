@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { PACKAGES, money, type Package } from '@/lib/data';
 import { prefersReducedMotion } from '@/lib/canvas';
 
@@ -30,7 +29,6 @@ function PriceCounter({ value }: { value: number }) {
 }
 
 function PackageModal({ pkg, index, onClose }: { pkg: Package; index: number; onClose: () => void }) {
-  const router = useRouter();
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -69,7 +67,7 @@ function PackageModal({ pkg, index, onClose }: { pkg: Package; index: number; on
           </div>
         </div>
         <div style={{ padding: '28px 40px 40px', display: 'flex', flexWrap: 'wrap', gap: 20, alignItems: 'center' }}>
-          <button className="btn btn-dark" onClick={() => router.push(`/contact/?package=${pkg.id}`)}>Continue to contact →</button>
+          <button className="btn btn-dark" onClick={() => window.location.assign(`/contact/?package=${pkg.id}`)}>Continue to contact →</button>
           <button className="nb ul" onClick={onClose}>Back to packages</button>
         </div>
       </div>

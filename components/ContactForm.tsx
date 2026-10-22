@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
+import Link from './SiteLink';
 import { useSearchParams } from 'next/navigation';
 import { PACKAGES, money } from '@/lib/data';
 import Confetti from './Confetti';

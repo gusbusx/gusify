@@ -411,3 +411,19 @@ textarea.input { resize: vertical; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* About — intro with scroll cue */
+.about-intro { min-height: calc(100svh - 80px); display: flex; flex-direction: column; justify-content: space-between; gap: 64px; padding-top: 96px; padding-bottom: 40px; }
+.scroll-cue { align-self: center; display: inline-flex; flex-direction: column; align-items: center; gap: 12px; color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; transition: color .3s; }
+.scroll-cue:hover { color: var(--gold-ink); }
+.scroll-cue svg { color: var(--gold); animation: cueBob 1.8s var(--ease-out) infinite; }
+@keyframes cueBob { 0%, 100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(10px); opacity: .55; } }
+
+/* About — team */
+.team { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 64px 56px; }
+.member-photo { aspect-ratio: 4 / 5; background: var(--stone); border-radius: 14px; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #8A8780; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; transition: transform .6s var(--ease-out), box-shadow .6s var(--ease-out); }
+.member-photo img { width: 100%; height: 100%; object-fit: cover; }
+.member:hover .member-photo { transform: translateY(-6px); box-shadow: 0 30px 60px -30px rgba(10,10,10,.35); }
+@media (prefers-reduced-motion: reduce) { .scroll-cue svg { animation: none; } }
+.member-photo { width: 100%; max-height: 560px; }
+@media (max-width: 720px) { .about-intro { min-height: 0; gap: 56px; padding-top: 64px; } }

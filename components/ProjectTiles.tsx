@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from './SiteLink';
 import { useState } from 'react';
 import { PROJECTS } from '@/lib/data';
 import { FacetG } from './Logo';

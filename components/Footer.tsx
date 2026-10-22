@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from './SiteLink';
 import { FacetG, Wordmark } from './Logo';
 import { CONTACT_EMAIL, PHONE } from '@/lib/data';
 

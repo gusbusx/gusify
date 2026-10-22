@@ -1,31 +1,69 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import Link from '@/components/SiteLink';
 import Values from '@/components/Values';
 
 export const metadata: Metadata = { title: 'About', description: 'Gusify is an independent web design and development studio founded by Gus.' };
 
+const TEAM = [
+  {
+    name: 'Gus',
+    role: 'Founder & lead developer',
+    placeholder: '[Photo of Gus]',
+    bio: [
+      'Gus founded Gusify to give growing businesses the kind of website usually reserved for big brands — designed with care and built by the same person from start to finish.',
+      '[Your story — how you got into web development, what drives you, and the kind of clients you love working with.]',
+      'Recent work includes the websites for Marler Enterprises and 2KD Hood Cleaning.',
+    ],
+  },
+  {
+    name: 'Zoey',
+    role: 'Lead Support',
+    placeholder: '[Photo of Zoey]',
+    bio: [
+      'Every studio needs someone keeping morale up. At Gusify, that’s Zoey — head of emotional support, official greeter and firm believer that no deadline is more important than a walk.',
+      '[Zoey’s story — how she joined the family, her breed, and her favorite part of studio life.]',
+    ],
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
-      <section className="container" style={{ paddingTop: 96, paddingBottom: 112 }}>
-        <p className="eyebrow fade" style={{ marginBottom: 20 }}>The studio</p>
-        <h1 className="h-page"><span className="line"><span>About us</span></span></h1>
-        <p className="display fade" style={{ marginTop: 56, maxWidth: 980, fontWeight: 500, fontSize: 'clamp(24px, 2.6vw, 38px)', lineHeight: 1.3, letterSpacing: '-0.02em', animationDelay: '0.3s' }}>
-          Gusify is an independent web design and development studio. We partner with businesses that care about how they show up — and build websites that make them look as good as they <span className="gold">really are.</span>
-        </p>
+      <section className="container about-intro">
+        <div>
+          <p className="eyebrow fade" style={{ marginBottom: 20 }}>The studio</p>
+          <h1 className="h-page"><span className="line"><span>About us</span></span></h1>
+          <p className="display fade" style={{ marginTop: 56, maxWidth: 980, fontWeight: 500, fontSize: 'clamp(24px, 2.6vw, 38px)', lineHeight: 1.3, letterSpacing: '-0.02em', animationDelay: '0.3s' }}>
+            Gusify is an independent web design and development studio. We partner with businesses that care about how they show up — and build websites that make them look as good as they <span className="gold">really are.</span>
+          </p>
+        </div>
+        <a href="#team" className="scroll-cue fade" style={{ animationDelay: '0.9s' }}>
+          <span>Scroll down</span>
+          <svg width="22" height="34" viewBox="0 0 22 34" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M11 2v29" /><path d="M3 23l8 8 8-8" />
+          </svg>
+        </a>
       </section>
 
-      <section aria-labelledby="h-founder" className="container" style={{ paddingBottom: 128, display: 'flex', flexWrap: 'wrap', gap: '48px 64px', alignItems: 'center' }}>
-        <div className="reveal" style={{ flex: '1 1 360px', aspectRatio: '4 / 5', maxWidth: 520, background: 'var(--stone)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#8A8780', fontSize: 12, fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase' }}>
-          {/* Replace with: <img src="/gus.jpg" alt="Gus, founder of Gusify" /> */}
-          [Photo of Gus]
+      <section id="team" aria-labelledby="h-team" className="container" style={{ paddingTop: 24, paddingBottom: 128, scrollMarginTop: 96 }}>
+        <div className="reveal" style={{ marginBottom: 56 }}>
+          <p className="eyebrow" style={{ marginBottom: 14 }}>The team</p>
+          <h2 id="h-team" className="h-sec">Small team. Big standards.</h2>
         </div>
-        <div className="reveal" style={{ flex: '1 1 420px' }}>
-          <p className="eyebrow" style={{ marginBottom: 14 }}>Founder &amp; lead developer</p>
-          <h2 id="h-founder" className="display" style={{ marginBottom: 24, fontSize: 'clamp(40px, 5vw, 72px)', letterSpacing: '-0.04em' }}>Gus</h2>
-          <p className="muted" style={{ marginBottom: 18, fontSize: 17, lineHeight: 1.7 }}>Gus founded Gusify to give growing businesses the kind of website usually reserved for big brands — designed with care and built by the same person from start to finish.</p>
-          <p className="muted" style={{ marginBottom: 18, fontSize: 17, lineHeight: 1.7 }}>[Your story — how you got into web development, what drives you, and the kind of clients you love working with.]</p>
-          <p className="muted" style={{ fontSize: 17, lineHeight: 1.7 }}>Recent work includes the websites for Marler Enterprises and 2KD Hood Cleaning.</p>
+        <div className="team">
+          {TEAM.map((m) => (
+            <article key={m.name} className="member reveal">
+              <div className="member-photo">
+                {/* Replace with: <img src={m.photo} alt={m.alt} /> */}
+                {m.placeholder}
+              </div>
+              <p className="eyebrow" style={{ marginTop: 28, marginBottom: 10 }}>{m.role}</p>
+              <h3 className="display" style={{ marginBottom: 18, fontSize: 'clamp(36px, 4vw, 56px)', letterSpacing: '-0.04em' }}>{m.name}</h3>
+              {m.bio.map((b) => (
+                <p key={b} className="muted" style={{ marginBottom: 14, fontSize: 17, lineHeight: 1.7 }}>{b}</p>
+              ))}
+            </article>
+          ))}
         </div>
       </section>
 

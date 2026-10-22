@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Project } from '@/lib/data';
 
+const SCROLLBAR_CROP = 24;
+
 /**
  * The client's real, live website — rendered at desktop width, scaled down to fit, and locked
  * (visitors can't click or scroll it). In `scroll` mode it loads `?gusify-preview=1`, which makes
@@ -47,11 +49,13 @@ export default function LivePreview({ project, mode, virtualWidth = 1440 }: { pr
           title={`Live preview of ${project.domain}`}
           loading="lazy"
           tabIndex={-1}
+          scrolling={mode === 'hero' ? 'no' : undefined}
           sandbox="allow-scripts allow-same-origin"
           referrerPolicy="no-referrer-when-downgrade"
           onLoad={() => setLoaded(true)}
           style={{
-            width: size.vw,
+            // extra width pushes the site's scrollbar past the crop edge
+            width: size.vw + SCROLLBAR_CROP,
             height: size.vh,
             transform: `scale(${size.scale})`,
             opacity: loaded ? 1 : 0,

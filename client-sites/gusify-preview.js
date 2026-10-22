@@ -16,6 +16,9 @@
   var PAUSE = 1600;       // ms at the bottom and top
   var root = document.scrollingElement || document.documentElement;
   root.style.scrollBehavior = 'auto';
+  var hide = document.createElement('style');
+  hide.textContent = 'html,body{scrollbar-width:none}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none}';
+  document.head.appendChild(hide);
 
   var y = 0, mode = 'wait', waitLeft = START_DELAY, last = null;
   function max() { return Math.max(0, root.scrollHeight - window.innerHeight); }
