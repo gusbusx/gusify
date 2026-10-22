@@ -1,0 +1,18 @@
+# dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+next-env.d.ts
+
+# Cloudflare / env
+.wrangler/
+.dev.vars
+.env*
+
+# macOS
+.DS_Store
+
+# logs
+*.log
